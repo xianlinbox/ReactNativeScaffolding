@@ -43,5 +43,17 @@
       "json",
       "node"
     ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "tsc --noEmit && lint-staged",
+      "post-commit": "git update-index --again"
+    }
+  },
+  "lint-staged": {
+    "*.{js,ts,tsx,jsx}": [
+      "eslint . --fix",
+      "git add"
+    ]
   }
 }
